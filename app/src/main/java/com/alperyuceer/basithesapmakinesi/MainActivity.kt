@@ -6,6 +6,7 @@ import android.view.View
 import com.alperyuceer.basithesapmakinesi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    var sonuc = 0.0;
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,22 +15,45 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
+
     }
     fun topla(view: View){
-        var sonuc= binding.number1.text.toString().toInt() + binding.number2.text.toString().toInt()
-        binding.sonuc.text = "SONUÇ: ${sonuc}"
+        if(binding.number1.text.isEmpty()){
+            binding.sonuc.text="BOŞ BIRAKILAMAZ"
+
+        }else{
+            sonuc= (binding.number1.text.toString().toInt() + binding.number2.text.toString().toInt()).toDouble()
+            binding.sonuc.text = "SONUÇ: ${sonuc}"
+        }
+
     }
     fun cikar(view: View){
-        var sonuc= binding.number1.text.toString().toInt() - binding.number2.text.toString().toInt()
-        binding.sonuc.text = "SONUÇ: ${sonuc}"
+        if(binding.number1.text.isEmpty()||binding.number2.text.isEmpty()){
+            binding.sonuc.text="BOŞ BIRAKILAMAZ"
+
+        }else{
+            sonuc= (binding.number1.text.toString().toInt() - binding.number2.text.toString().toInt()).toDouble()
+            binding.sonuc.text = "SONUÇ: ${sonuc}"
+        }
     }
     fun carp(view: View){
-        var sonuc= binding.number1.text.toString().toInt() * binding.number2.text.toString().toInt()
-        binding.sonuc.text = "SONUÇ: ${sonuc}"
+        if(binding.number1.text.isEmpty()||binding.number2.text.isEmpty()){
+            binding.sonuc.text="BOŞ BIRAKILAMAZ"
+
+        }else{
+            sonuc= (binding.number1.text.toString().toInt() * binding.number2.text.toString().toInt()).toDouble()
+            binding.sonuc.text = "SONUÇ: ${sonuc}"
+        }
     }
     fun bol(view: View){
-        var sonuc= binding.number1.text.toString().toDouble() / binding.number2.text.toString().toDouble()
-        binding.sonuc.text = "SONUÇ: ${sonuc}"
+        if(binding.number1.text.isEmpty()||binding.number2.text.isEmpty()){
+            binding.sonuc.text="BOŞ BIRAKILAMAZ"
+
+        }else{
+            sonuc= binding.number1.text.toString().toDouble() / binding.number2.text.toString().toDouble()
+            binding.sonuc.text = "SONUÇ: ${sonuc}"
+        }
+
     }
 
 }
